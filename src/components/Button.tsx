@@ -16,7 +16,7 @@ const style = StyleSheet.create({
 
 interface Props {
     title: string
-    onClick: any
+    onClick?: any
 }
 
 function Button({ title, onClick }: Props): React.JSX.Element {
