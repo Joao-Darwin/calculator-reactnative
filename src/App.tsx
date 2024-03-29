@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView, StyleSheet, View
 } from 'react-native';
 import Button from './components/Button';
+import Display from './components/Display';
 
 const style = StyleSheet.create({
   container: {
@@ -16,8 +17,11 @@ const style = StyleSheet.create({
 
 function App(): React.JSX.Element {
 
+  const [displayValue, setDisplayValue] = useState('0');
+
   return (
     <SafeAreaView style={style.container}>
+      <Display value={displayValue} />
       <View style={style.buttons}>
         <Button title='AC' />
         <Button title='/' />
