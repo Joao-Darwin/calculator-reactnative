@@ -1,5 +1,5 @@
 import React from "react";
-import { Button as ButtonReact, Dimensions, StyleSheet, View } from "react-native";
+import { Dimensions, StyleSheet, Text, TouchableHighlight } from "react-native";
 
 const style = StyleSheet.create({
     button: {
@@ -8,6 +8,7 @@ const style = StyleSheet.create({
         width: Dimensions.get('window').width / 4,
         padding: 20,
         backgroundColor: '#f0f0f0',
+        justifyContent: 'center',
         textAlign: 'center',
         borderWidth: 1,
         borderColor: '#888'
@@ -21,9 +22,9 @@ interface Props {
 
 function Button({ title, onClick }: Props): React.JSX.Element {
     return (
-        <View style={style.button}>
-            <ButtonReact title={title} onPress={onClick}/>
-        </View>
+        <TouchableHighlight onPress={onClick}>
+            <Text style={style.button}>{title}</Text>
+        </TouchableHighlight>
     )
 }
 
