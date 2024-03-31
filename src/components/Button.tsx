@@ -12,18 +12,38 @@ const style = StyleSheet.create({
         textAlign: 'center',
         borderWidth: 1,
         borderColor: '#888'
+    },
+    operationButton: {
+        color: '#fff',
+        backgroundColor: '#fa8231'
+    },
+    buttonDouble: {
+        width: (Dimensions.get('window').width / 4) * 2
+    },
+    buttonTriple: {
+        width: (Dimensions.get('window').width / 4) * 3
     }
 })
 
 interface Props {
     title: string
-    onClick?: any
+    onClick?: any;
+    isOperationButton?: boolean;
+    isDoubleButton?: boolean;
+    isTripleButton?: boolean;
 }
 
-function Button({ title, onClick }: Props): React.JSX.Element {
+function Button({ title, onClick, isOperationButton, isDoubleButton, isTripleButton }: Props): React.JSX.Element {
+
+    const buttonStyle: any[] = [style.button];
+
+    if (isOperationButton) buttonStyle.push(style.operationButton);
+    if (isDoubleButton) buttonStyle.push(style.buttonDouble);
+    if (isTripleButton) buttonStyle.push(style.buttonTriple);
+
     return (
         <TouchableHighlight onPress={onClick}>
-            <Text style={style.button}>{title}</Text>
+            <Text style={buttonStyle}>{title}</Text>
         </TouchableHighlight>
     )
 }
